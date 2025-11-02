@@ -16,6 +16,7 @@ def home():
 def get_todos():
     return jsonify(todos), 200
 
+
 @app.route('/todos', methods=['POST'])
 def add_todo():
     data = request.get_json()
@@ -29,4 +30,3 @@ def add_todo():
     }
     todos.append(todo)
     return jsonify(todo), 201
-
