@@ -1,0 +1,20 @@
+Index: app/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from flask import Flask, jsonify, request\r\n\r\napp = Flask(__name__)\r\n\r\n# in memory data store\r\n\r\ntodos = []\r\n\r\n@app.route('/')\r\ndef home():\r\n    return jsonify({\"message\": \"Welcome to the To-Do List API!\"}), 200\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/main.py b/app/main.py
+--- a/app/main.py	(revision ef01e1c57784de1d6ac11243ccea9786a25a094b)
++++ b/app/main.py	(date 1762082125454)
+@@ -6,8 +6,7 @@
+ 
+ todos = []
+ 
++
+ @app.route('/')
+ def home():
+     return jsonify({"message": "Welcome to the To-Do List API!"}), 200
+-
+-
