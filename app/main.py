@@ -30,3 +30,23 @@ def add_todo():
     }
     todos.append(todo)
     return jsonify(todo), 201
+
+
+@app.route('/todos/<int:todo_id>', methods=['PUT'])
+def update_todo(todo_id):
+    for todo in todos:
+        if todo['id'] == todo_id:
+            todo['done'] = True
+            return jsonify(todo), 200
+    return jsonify({"error": "To-Do not found"}), 404
+
+
+@app.route('/todos/<int:todo_id>', methods=['DELETE'])
+def delete_todo(todo_id):
+    global todos
+    todos = [todo for todo in todos if todo['id'] != todo_id]
+    return jsonify({"message": "To-Do deleted"}), 200
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
